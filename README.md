@@ -136,12 +136,12 @@ python app.py
 ---
 
 ## 🎥 Demo Video
-[(Add your YouTube link here)](https://youtu.be/SDdVtu5xTPg)
+[(Demo Video)](https://youtu.be/SDdVtu5xTPg)
 
 ---
 
 ## ✍️ Article
-[(Add your Medium/Dev.to link here)](https://medium.com/@harshal.y.492/building-a-voice-controlled-ai-agent-using-groq-and-ollama-076d0fd9a573)
+[(Building AI Agent - Medium Article)](https://medium.com/@harshal.y.492/building-a-voice-controlled-ai-agent-using-groq-and-ollama-076d0fd9a573)
 
 ---
 
