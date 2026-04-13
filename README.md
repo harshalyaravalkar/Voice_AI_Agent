@@ -39,10 +39,10 @@ Gradio UI → Groq (Whisper API via Requests) → Ollama (phi model) → Python 
 
 ## 📂 Project Structure
 Voice_AI_Agent/
-│── app.py
-│── README.md
-│── .env (not included in repo)
-│── output/ (created at runtime)
+- app.py
+- README.md
+- .env (not included in repo)
+- output/ (created at runtime)
 
 ---
 
