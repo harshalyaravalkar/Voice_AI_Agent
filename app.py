@@ -27,11 +27,11 @@ def transcribe_audio(audio):
 def detect_intent(text):
     text_lower = text.lower()
 
-    # ✅ fallback rule for summary
+    # fallback rule for summary
     if "summarize" in text_lower or "summary" in text_lower:
         return "SUMMARIZE"
     
-    # ✅ strong rule for combined intent
+    # strong rule for combined intent
     if "create" in text_lower and (
     "code" in text_lower or 
     "function" in text_lower or 
@@ -73,7 +73,7 @@ Return ONLY the label. No numbers. No explanation.
         result = response.json()
         raw_intent = result.get("response", "").strip().upper()
 
-        # ✅ CLEAN OUTPUT
+        # CLEAN OUTPUT
         if "CREATE_FILE" in raw_intent and "WRITE_CODE" in raw_intent:
             return "CREATE_FILE + WRITE_CODE"
         elif "WRITE_CODE" in raw_intent:
@@ -114,7 +114,7 @@ def generate_code(prompt):
 
         result = response.json()
 
-        # ✅ APPLY CLEANING HERE
+        # APPLY CLEANING HERE
         return clean_code(result.get("response", "No code generated"))
 
     except Exception as e:
@@ -163,7 +163,7 @@ def execute_action(intent, text):
             with open(filename, "w") as f:
                 f.write(code)
 
-            return f"✅ File created and code written successfully: {filename}"
+            return f" File created and code written successfully: {filename}"
         
         # CREATE EMPTY FILE
         elif intent == "CREATE_FILE":
@@ -177,7 +177,7 @@ def execute_action(intent, text):
             with open(filename, "w") as f:
                 f.write("")
 
-            return f"✅ Empty file created: {filename}"
+            return f" Empty file created: {filename}"
 
         # WRITE CODE ONLY
         elif intent == "WRITE_CODE":
@@ -188,19 +188,19 @@ def execute_action(intent, text):
             with open(filename, "w") as f:
                 f.write(code)
 
-            return f"✅ Code written successfully: {filename}"
+            return f" Code written successfully: {filename}"
 
         # SUMMARIZATION
         elif intent == "SUMMARIZE":
             summary = summarize_text(text)
-            return f"📄 Summary:\n{summary}"
+            return f" Summary:\n{summary}"
 
         # GENERAL CHAT
         else:
-            return "💬 General chat response (can be extended)"
+            return " General chat response (can be extended)"
 
     except Exception as e:
-        return f"❌ Error during execution: {str(e)}"
+        return f" Error during execution: {str(e)}"
 
 # Main Pipeline
 def process_audio(audio):
@@ -224,7 +224,7 @@ def process_audio(audio):
 
 # UI
 with gr.Blocks() as app:
-    gr.Markdown("# 🎤 Voice AI Agent")
+    gr.Markdown("#  Voice AI Agent")
 
     audio_input = gr.Audio(
         sources=["microphone", "upload"],
