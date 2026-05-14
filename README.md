@@ -1,43 +1,51 @@
 # 🎤 Voice-Controlled AI Agent
 
-## 📌 Overview
-This project is a voice-controlled AI agent that processes audio input, understands user intent, and executes tasks such as file creation, code generation, and text summarization.
+A simple voice-controlled AI assistant built with Python, Gradio, Groq Whisper API, and Ollama.
 
-The system converts speech into actionable outputs using a hybrid pipeline of APIs and local LLMs.
-
----
-
-## 🚀 Features
-- 🎤 Audio input (Microphone + File Upload)
-- 🧠 Speech-to-Text using Groq Whisper API
-- 🤖 Intent Detection using Local LLM (Ollama - phi)
-- ⚙️ Tool Execution:
-  - File creation
-  - Code generation
-  - Text summarization
-- 📁 Dynamic filename extraction
-- 🖥️ Interactive UI using Gradio
+The agent takes voice input from the microphone or uploaded audio files, converts speech to text, detects user intent, and performs actions like generating code, creating files, and summarizing text.
 
 ---
 
-## 🧠 Architecture
+## Features
 
-Gradio UI → Groq (Whisper API via Requests) → Ollama (phi model) → Python Execution Layer → Output Interface
+- Voice input through microphone or audio upload
+- Speech-to-text using Groq Whisper API
+- Intent detection using local Ollama model (`phi`)
+- File creation support
+- Code generation
+- Text summarization
+- Automatic filename extraction
+- Gradio-based web interface
 
 ---
 
-## 🛠️ Tech Stack
+## Architecture
+
+```text
+Gradio UI
+   ↓
+Groq Whisper API (Speech-to-Text)
+   ↓
+Ollama (phi model for intent detection)
+   ↓
+Python Execution Layer
+   ↓
+Generated Output / Files
+```
+---
+
+## Tech Stack
 - Python
 - Gradio
 - Groq API (Speech-to-Text)
 - Ollama (Local LLM - phi)
 - Requests
 - python-dotenv
-- re (Regex for filename extraction)
+- re (Regex)
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 Voice_AI_Agent/
 - app.py
 - README.md
@@ -46,7 +54,7 @@ Voice_AI_Agent/
 
 ---
 
-## 🔐 Setting Up Groq API Key
+## Setting Up Groq API Key
 
 ### Step 1: Get API Key
 1. Go to: https://console.groq.com/keys
@@ -61,7 +69,7 @@ Voice_AI_Agent/
 ```cmd
 setx GROQ_API_KEY "your_api_key_here""
 ```
-⚠️ After using `setx`, restart terminal before running the app.
+ After using `setx`, restart terminal before running the app.
 
 ---
 
@@ -73,7 +81,7 @@ GROQ_API_KEY=your_api_key_here
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone Repository
 git clone https://github.com/your-username/Voice_AI_Agent.git
@@ -102,14 +110,13 @@ python app.py
 
 ---
 
-## 📁 Output Folder
+## Output Folder
 
-- The `output/` folder is automatically created when the app runs.
-- All generated files (code, text files) are stored inside this folder.
-
+- The `output/` folder is created automatically when the application runs.
+  Generated files such as text files or code files are stored there.
 ---
 
-## 🎯 Example Commands
+## Example Voice Commands
 
 - "Create a Python file for palindrome"
 - "Write a function for binary search"
@@ -118,35 +125,35 @@ python app.py
 
 ---
 
-## ⚠️ Design Decisions
+## Design Decisions
 
-- Groq API used for fast and reliable speech-to-text (local Whisper was too slow)
-- Ollama (phi) used for local LLM inference to satisfy assignment requirements
-- Hybrid approach ensures both performance and local execution
-
----
-
-## ⚠️ Challenges Faced
-
-- Slow local Whisper model → switched to Groq API  
-- Inconsistent LLM outputs → added cleaning + rules  
-- Intent detection errors → hybrid LLM + rule-based system  
-- Filename extraction → implemented regex-based solution  
+- Groq Whisper API was used because local Whisper inference was too slow for real-time usage.
+- Ollama with the phi model was used for local LLM-based intent detection.
+- A hybrid approach was used to balance speed and local execution.
 
 ---
 
-## 🎥 Demo Video
+## Challenges Faced
+
+- Local Whisper model performance was slow
+- LLM responses were sometimes inconsistent
+- Intent detection required both rule-based logic and LLM support
+- Filename extraction needed regex-based cleanup
+
+---
+
+##  Demo Video
 [(Demo Video)](https://youtu.be/SDdVtu5xTPg)
 
 ---
 
-## ✍️ Article
+## Medium Article
 [(Building AI Agent - Medium Article)](https://medium.com/@harshal.y.492/building-a-voice-controlled-ai-agent-using-groq-and-ollama-076d0fd9a573)
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 
-This project demonstrates how to build a real-world AI agent that integrates speech processing, language understanding, and action execution into a unified pipeline.
+This project combines speech recognition, language understanding, and task execution into a single workflow.
 
-It showcases the transition from passive AI systems to action-oriented intelligent agents.
+The goal was to build a practical AI agent capable of taking voice commands and performing useful actions in real time.
